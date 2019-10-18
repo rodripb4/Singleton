@@ -1,0 +1,69 @@
+
+
+<!DOCTYPE html>
+<html>
+    
+<head>
+    <title>Login con Singleton</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+	<link rel="stylesheet" href="Stylo.css">
+</head>
+<!--Coded with love by Mutiullah Samim-->
+<body>
+	<div class="container h-100">
+		<div class="d-flex justify-content-center h-100">
+			<div class="user_card">
+                <div class="d-flex justify-content-center mt-5">
+                    <h1>Login con Singleton</h1>
+                </div>
+				<div class="d-flex justify-content-center form_container mt-4" >
+					<form>
+						<div class="input-group mb-3">
+							<div class="input-group-append">
+								<span class="input-group-text"><i class="fas fa-user"></i></span>
+							</div>
+							<input id="user" type="text" name="" class="form-control input_user" value="" placeholder="username">
+						</div>
+						<div class="input-group mb-2">
+							<div class="input-group-append">
+								<span class="input-group-text"><i class="fas fa-key"></i></span>
+							</div>
+							<input id="pass" type="password" name="" class="form-control input_pass" value="" placeholder="password">
+						</div>
+						<div class="form-group">
+							<div class="custom-control custom-checkbox">
+								<input type="checkbox" class="custom-control-input" id="customControlInline">
+								<label class="custom-control-label" for="customControlInline">Remember me</label>
+							</div>
+						</div>
+					</form>
+				</div>
+				<div class="d-flex justify-content-center mt-3 login_container">
+					<button type="button" name="button" class="btn login_btn" onclick=getInstance()>Login</button>
+				</div>
+			</div>
+		</div>
+    </div>
+	<script type="text/javascript">
+
+	var instance;
+
+	 function createInstance() {
+        var user=document.getElementById("user").value;
+        var pas=document.getElementById("pass").value;
+        var login = new Object(user,pas);
+        return login;
+    }
+ 
+    
+        function getInstance () {
+            if (!instance) {
+                instance = createInstance();
+                alert("Se ha logueado correctamente!");
+            }else{
+                alert("No puede acceder");
+            }
+            return instance;
+    };</script>
+</body>
+</html>
